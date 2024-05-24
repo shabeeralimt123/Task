@@ -166,15 +166,15 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
                 child: Row(
                   children: [
                     PriorityStatusContainer(
-                      text: "high",
+                      text: "High",
                       status: TaskPriority.high,
                     ),
                     PriorityStatusContainer(
-                      text: "medium",
+                      text: "Medium",
                       status: TaskPriority.medium,
                     ),
                     PriorityStatusContainer(
-                      text: "low",
+                      text: "Low",
                       status: TaskPriority.low,
                     ),
                   ],
