@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 import 'package:test_firebase/core/utils/palette.dart';
 import 'package:test_firebase/src/theme.dart';
 
@@ -31,7 +30,6 @@ showDeleteMessage(BuildContext context,
       contentPadding:
           EdgeInsets.all(12), // Remove padding to control content layout
       content: Container(
-        width: 400,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +107,7 @@ showDeleteMessage(BuildContext context,
                     },
                     child: Container(
                       height: 44,
-                      width: 170,
+                      padding: EdgeInsets.only(left: 5, right: 5),
                       child: Center(
                         child: Text(
                           button2 ?? "Cancel",
@@ -133,7 +131,7 @@ showDeleteMessage(BuildContext context,
                     },
                     child: Container(
                       height: 44,
-                      width: 170,
+                      padding: EdgeInsets.only(left: 5, right: 5),
                       child: Center(
                         child: Text(
                           button1 ?? "Delete",

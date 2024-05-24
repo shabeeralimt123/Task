@@ -24,6 +24,7 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
   DateTime? selectedToDate;
   late TextEditingController startTimeController;
   late TextEditingController endTimeController;
+  bool validate = false;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
@@ -303,7 +304,11 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
                 ],
               ),
               kHight(12),
-              Text("Date And Time Field Is Mandatory"),
+              Text(
+                "Date And Time Field Is Mandatory",
+                style: TextStyle(
+                    color: validate == true ? Colors.red : Palette.black),
+              ),
               kHight(25),
               CustomButton(
                   isLoading: isLoading,
@@ -311,6 +316,15 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
                   onPress: () async {
                     final form = formKey.currentState;
                     if (form!.validate()) {
+                      if (selectedDate == null ||
+                          selectedToDate == null ||
+                          startTimeController.text.isEmpty ||
+                          endTimeController.text.isEmpty) {
+                        setState(() {
+                          validate = true;
+                        });
+                        return; // Exit function if any mandatory field is empty
+                      }
                       try {
                         setState(() {
                           isLoading = true;
