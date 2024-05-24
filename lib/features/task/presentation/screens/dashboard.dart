@@ -143,6 +143,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                     colors: [
                       Colors.black12,
                       Colors.black
@@ -207,52 +209,56 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               ),
               kHight(22),
               Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ButtonsTabBar(
-                      onTap: (selectedIndex) async {
-                        if (selectedIndex == 0) {
-                          ref.read(taskNotifierProvider.notifier).getTasks();
-                        } else if (selectedIndex == 1) {
-                          ref
-                              .read(taskNotifierProvider.notifier)
-                              .taskFilter(TaskPriority.high);
-                        } else if (selectedIndex == 2) {
-                          ref
-                              .read(taskNotifierProvider.notifier)
-                              .taskFilter(TaskPriority.medium);
-                        } else {
-                          ref
-                              .read(taskNotifierProvider.notifier)
-                              .taskFilter(TaskPriority.low);
-                        }
-                      },
-                      borderWidth: 1,
-                      borderColor: Palette.blue,
-                      splashColor: Colors.transparent,
-                      elevation: 0,
-                      radius: 12,
-                      unselectedBorderColor: Palette.blue,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                      center: false,
-                      unselectedLabelStyle: TextStyle(
-                        color: Palette.blue,
-                      ),
-                      unselectedDecoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      labelStyle: TextStyle(color: Colors.white),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: ButtonsTabBar(
+                        onTap: (selectedIndex) async {
+                          if (selectedIndex == 0) {
+                            ref.read(taskNotifierProvider.notifier).getTasks();
+                          } else if (selectedIndex == 1) {
+                            ref
+                                .read(taskNotifierProvider.notifier)
+                                .taskFilter(TaskPriority.high);
+                          } else if (selectedIndex == 2) {
+                            ref
+                                .read(taskNotifierProvider.notifier)
+                                .taskFilter(TaskPriority.medium);
+                          } else {
+                            ref
+                                .read(taskNotifierProvider.notifier)
+                                .taskFilter(TaskPriority.low);
+                          }
+                        },
+                        borderWidth: 1,
+                        borderColor: Palette.blue,
+                        splashColor: Colors.transparent,
+                        elevation: 0,
+                        radius: 12,
+                        unselectedBorderColor: Palette.blue,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                        unselectedLabelStyle: TextStyle(
+                          color: Palette.blue,
+                        ),
+                        unselectedDecoration: BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        labelStyle: TextStyle(color: Colors.white),
 
-                      // Set selected text color
-                      decoration: BoxDecoration(
-                        color: Palette.blue,
-                      ),
-                      height: 44,
-                      tabs: [
-                        Tab(text: "all"),
-                        Tab(text: "high"),
-                        Tab(text: "medium"),
-                        Tab(text: "low"),
-                      ]),
+                        // Set selected text color
+                        decoration: BoxDecoration(
+                          color: Palette.blue,
+                        ),
+                        height: 44,
+                        tabs: [
+                          Tab(text: "all"),
+                          Tab(text: "high"),
+                          Tab(text: "medium"),
+                          Tab(text: "low"),
+                        ]),
+                  ),
                 ],
               ),
               kHight(12),
