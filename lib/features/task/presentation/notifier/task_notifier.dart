@@ -65,6 +65,16 @@ class TaskNotifier extends StateNotifier<TaskState> {
       rethrow;
     }
   }
+
+  getTotalTasksCount() async {
+    try {
+      final totalCount = await _taskRepository.getTotalTaskCount();
+      return totalCount;
+    } catch (e) {
+      // Handle error
+      print("Error fetching total task count: $e");
+    }
+  }
 }
 
 final selectedPriorityProvider = StateProvider<String?>((ref) => null);

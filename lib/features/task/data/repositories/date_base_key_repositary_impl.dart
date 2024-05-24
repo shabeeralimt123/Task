@@ -94,4 +94,18 @@ class TaskRepositoryImpl implements TaskRepository {
       rethrow;
     }
   }
+  @override
+Future<int> getTotalTaskCount() async {
+  try {
+    final doc = await ref
+        .read(firestoreProvider)
+        .collection(DatabaseKeys.task)
+        .get();
+    final totalCount = doc.size;
+    print('Total Count: $totalCount');
+    return totalCount;
+  } catch (e) {
+    rethrow;
+  }
+}
 }
