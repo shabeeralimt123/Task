@@ -125,7 +125,8 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
                   return Validator.validateField(
                       value, "task name is requires");
                 },
-                labelStyle: bodyLarge2.copyWith(fontWeight: FontWeight.w400),
+                labelStyle: bodyLarge2.copyWith(
+                    fontWeight: FontWeight.w700, fontSize: 15),
                 label: "Task Name",
                 hintText: "Enter Task Name is Mandatory",
                 color: Colors.black38,
@@ -138,7 +139,8 @@ class _AddTaskDialogueBoxState extends ConsumerState<AddTaskDialogueBox> {
                       value, "task description is requires");
                 },
                 hintText: "Enter Task Description is Mandatory",
-                labelStyle: bodyLarge2.copyWith(fontWeight: FontWeight.w400),
+                labelStyle: bodyLarge2.copyWith(
+                    fontWeight: FontWeight.w700, fontSize: 15),
                 label: "Descriptions",
                 color: Colors.black38,
                 controller: descriptionController,
